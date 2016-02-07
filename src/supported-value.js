@@ -14,6 +14,11 @@ if (typeof document != 'undefined') el = document.createElement('p')
  * @api public
  */
 export default function supportedValue(property, value) {
+  if (!el) {
+    cache[cacheKey] = true
+    return cache[cacheKey]
+  }
+
   if (typeof value != 'string' || !isNaN(parseInt(value, 10))) return value
 
   let cacheKey = property + value

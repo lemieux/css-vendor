@@ -31,6 +31,11 @@ if (typeof document != 'undefined') {
  * @api public
  */
 export default function supportedProperty(prop) {
+  if (!el) {
+    cache[prop] = true
+    return cache[prop]
+  }
+
   // We have not tested this prop yet, lets do the test.
   if (cache[prop] != null) return cache[prop]
 
